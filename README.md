@@ -110,3 +110,11 @@ While this template is intentionally minimal and to be used as a learning resour
 - https://shipfa.st
 - https://makerkit.dev
 # Next.js-onNavigate-useLinkStatus
+
+```bash
+POSTGRES_URL="postgres://"
+# For Stripe Test mode
+STRIPE_WEBHOOK_SECRET="whsec_***"
+STRIPE_SECRET_KEY="sk_test_***"
+BASE_URL="http://localhost:3000"
+```
