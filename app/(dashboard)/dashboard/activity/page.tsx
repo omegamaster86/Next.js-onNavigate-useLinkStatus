@@ -3,10 +3,19 @@
 import Link from 'next/link'
 import { use } from 'react';
 import { useUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
 
 export default function ActivityPage() {
   const { userPromise } = useUser();
   const user = use(userPromise);
+
+  // if (!user) {
+  //   redirect('/login');
+  // }
+
+  // { user && (
+  //   ~~~~~
+  // )}
 
   return (
     <section className="flex-1 p-4 lg:p-8">
@@ -14,12 +23,11 @@ export default function ActivityPage() {
       <Link 
         href="/dashboard"
         onNavigate={(e) => {
-          console.log('Navigating to dashboard');
           if (!user) {
             alert('ログインしていないため、遷移できません');
             e.preventDefault();
+            redirect('/login');
           }
-          console.log('Navigating to dashboard');
           return true;
         }}
       >Go to Dashboard
